@@ -33,7 +33,7 @@ def generator(input, output, prefix, envfile, secrets, vars, strict):
 
     1. Common patterns working with input/output
 
-    $ workflow_generator input.tmlp output.yaml
+    $ workflow_generator input.tmpl output.yaml
 
     $ workflow_generator - output.yaml
 
@@ -41,7 +41,7 @@ def generator(input, output, prefix, envfile, secrets, vars, strict):
 
     $ workflow_generator input.tmpl
 
-    $ tail -n 12 input.tmlp | workflow_generator > output.yaml
+    $ tail -n 12 input.tmpl | workflow_generator > output.yaml
 
     2. Generate Pull Request GitHub workflow with the values taken from the envfile
 
