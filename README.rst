@@ -1,6 +1,8 @@
 workflow-tools
 ==============
 
+|Build|
+
 CLI tools for GitHub Actions.
 
 Use to automate your GitHub-based microservices.
@@ -31,3 +33,6 @@ Each tool provides help:
 
   $ workflow_secret --help
   $ workflow_generator --help
+
+.. |Build| image:: https://github.com/anna-money/workflow-tools/workflows/master/badge.svg
+   :target: https://github.com/anna-money/workflow-tools/actions?query=workflow%3Amaster

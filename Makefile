@@ -35,6 +35,11 @@ install:
 	pip install -e .
 	@echo "Done"
 
+hooks:
+	@echo "Install pre-commit hooks"
+	pre-commit install --install-hooks
+	@echo "Done"
+
 uninstall:
 	@echo "Unintsll package"
 	@pip uninstall ${PROJECT} -y
@@ -60,6 +65,10 @@ build:
 	@echo "Done"
 
 
+docs:
+	@echo "Build documentation"
+	make -C docs html
+
 clean:
 	@echo "Clean up files"
 	rm -rf `find . -name __pycache__`
@@ -78,4 +87,4 @@ clean:
 	python setup.py clean
 	@echo "Done"
 
-.PHONY: install uninstall lint test build clean
+.PHONY: install hooks uninstall lint test build docs clean
