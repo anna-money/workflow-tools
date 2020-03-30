@@ -1,0 +1,74 @@
+name: master
+
+on:
+  push:
+    branches:
+    - master
+
+env:
+  TWINE_USERNAME: ${{ secrets.PYPI_PUSH_USER }}
+  TWINE_PASSWORD: ${{ secrets.PYPI_PUSH_PASSWORD }}
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        python:
+          - 2.7
+          - 3.7
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install deps
+      run: PYTHON_VERSION=${{ matrix.python }} make install
+    - name: Run tests
+      run: PYTHON_VERSION=${{ matrix.python }} make test
+
+  lint:
+    runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        python:
+          - 2.7
+          - 3.7
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install deps
+      run: PYTHON_VERSION=${{ matrix.python }} make install
+    - name: Run linters
+      run: PYTHON_VERSION=${{ matrix.python }} make lint
+
+  build:
+    runs-on: ubuntu-18.04
+    needs: [test, lint]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: GitHub tag bump
+      id: tag
+      uses: anothrNick/github-tag-action@1.7.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Fix lib version
+      run: |
+        echo "__version__ = '${{ steps.tag.outputs.new_tag }}'" > version.py
+    - name: Install deps
+      run: PYTHON_VERSION=${{ matrix.python }} make install
+    - name: Build library
+      run: make build
