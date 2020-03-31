@@ -1,8 +1,15 @@
 import os
+import re
 
 from setuptools import find_packages, setup
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
+def _refine_description(desc):
+    desc = re.sub(r".. raw::.*", "", desc)
+    desc = re.sub(r"<img .*", "", desc)
+    return desc
 
 
 def readme():
@@ -14,6 +21,7 @@ def readme():
     with open(os.path.join(BASE_DIR, "CHANGELOG.rst")) as f:
         long_description += f.read()
 
+    long_description = _refine_description(long_description)
     return long_description
 
 
