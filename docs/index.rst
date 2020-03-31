@@ -1,11 +1,15 @@
+.. workflow-tools documentation master file, created by
+   sphinx-quickstart on Mon Mar 30 17:48:48 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
 workflow-tools
 ==============
 
-|Build|
-
-.. raw:: html
-
-   <img align="right" src="https://github.com/anna-money/workflow-tools/blob/master/docs/_static/workflow-tools-transparent-thumbnail.png">
+.. image:: _static/workflow-tools-transparent.png
+   :scale: 45 %
+   :alt: workflow-tools
+   :align: right
 
 CLI tools for GitHub Actions.
 
@@ -19,7 +23,7 @@ Rationale
 
 Microservice architecture may have dozens and dozens of lookalikes services that require similar CI/CD workflows.
 With infrastructure as code approach taken by the `GitHub Actions`_, why not using workflows generation?
-Setting up a new microservice repository may also be automated. This is where ``workflow-tools`` come in handy.
+Provisioning repository for a new microservice may also be automated. This is where ``workflow-tools`` come in handy.
 
 
 Examples
@@ -60,34 +64,30 @@ Now let's use a fragment of `Jinja2`_ template for a GitHub Actions workflow to 
             - 2.7
             - 3.7
 
-
-Help
-----
-
-See `documentation`_ for more details. Use ``--help`` flag for each tool in the package.
+See :ref:`examples-docs` for a detailed tour on using ``workflow-tools`` in the real world.
 
 
-Installation
-------------
+.. _user-docs:
 
-Just run:
+.. toctree::
+   :maxdepth: 2
+   :caption: User Documentation
 
-.. code-block:: bash
+   install
+   workflow-tools
+   examples
 
-  pip install -U workflow-tools
+.. _dev-docs:
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Developer Documentation
 
-Contributing
-------------
+   contributing
+   changelog
 
-See `CONTRIBUTING.rst`_.
-
-.. |Build| image:: https://github.com/anna-money/workflow-tools/workflows/master/badge.svg
-   :target: https://github.com/anna-money/workflow-tools/actions?query=workflow%3Amaster
 
 .. _GitHub Actions: https://help.github.com/en/actions
 .. _GitHub Secrets: https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
 .. _personal access token: https://github.com/settings/tokens
 .. _Jinja2: https://jinja.palletsprojects.com/
-.. _documentation: https://workflow-tools.readthedocs.io/
-.. _CONTRIBUTING.rst: https://github.com/anna-money/workflow-tools/tree/master/CONTRIBUTING.rst
