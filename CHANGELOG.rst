@@ -1,7 +1,12 @@
 Changelog
 ---------
 
-0.3.0 (2020-03-30)
+0.4.0 (2020-04-01)
+..................
+* Extend CI/CD flow with package check (#5) by @pilosus
+* Fix bugs with setup.py long description by @pilosus
+
+0.3.0 (2020-03-31)
 ..................
 * Add documentation and ReadTheDocs integration (#3) by @pilosus
 

@@ -45,3 +45,17 @@ jobs:
       run: PYTHON_VERSION=${{ matrix.python }} make install
     - name: Run linters
       run: PYTHON_VERSION=${{ matrix.python }} make lint
+
+  check_package:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install deps
+      run: PYTHON_VERSION=3.7 make install
+    - name: Check package
+      run: PYTHON_VERSION=3.7 make check-package
