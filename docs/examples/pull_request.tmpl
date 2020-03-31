@@ -1,0 +1,47 @@
+name: pull_request
+
+on:
+  pull_request:
+    branches:
+    - "*"
+
+jobs:
+  test:
+    runs-on: [[ workflow.runner_version ]]
+
+    strategy:
+      matrix:
+        python:
+          - [[ workflow.python27 ]]
+          - [[ workflow.python37 ]]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install deps
+      run: PYTHON_VERSION=${{ matrix.python }} make install
+    - name: Run tests
+      run: PYTHON_VERSION=${{ matrix.python }} make test
+
+  lint:
+    runs-on: [[ workflow.runner_version ]]
+
+    strategy:
+      matrix:
+        python:
+          - [[ workflow.python27 ]]
+          - [[ workflow.python37 ]]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install deps
+      run: PYTHON_VERSION=${{ matrix.python }} make install
+    - name: Run linters
+      run: PYTHON_VERSION=${{ matrix.python }} make lint

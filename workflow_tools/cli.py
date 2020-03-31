@@ -23,6 +23,7 @@ def generator(input, output, prefix, envfile, secrets, vars, strict):
     Interpolate Jinja2 template from INPUT with environment variables and write to OUTPUT.
 
     Template variables to be interpolated in the template should be denoted as follows:
+
     [[ workflow.your_variable ]]
 
     INPUT and OUTPUT can be files or standard input and output respectively.
@@ -33,23 +34,23 @@ def generator(input, output, prefix, envfile, secrets, vars, strict):
 
     1. Common patterns working with input/output
 
-    $ workflow_generator input.tmpl output.yaml
+      workflow_generator input.tmpl output.yaml
 
-    $ workflow_generator - output.yaml
+      workflow_generator - output.yaml
 
-    $ workflow_generator input.tmpl -
+      workflow_generator input.tmpl -
 
-    $ workflow_generator input.tmpl
+      workflow_generator input.tmpl
 
-    $ tail -n 12 input.tmpl | workflow_generator > output.yaml
+      tail -n 12 input.tmpl | workflow_generator > output.yaml
 
     2. Generate Pull Request GitHub workflow with the values taken from the envfile
 
-    $ workflow_generator YOUR-TEMPLATES-PATH/pr.tmpl YOUR-WORKFLOWS-PATH/pr.yml -e YOUR-TEMPLATES-PATH/.env.example
+      workflow_generator YOUR-TEMPLATES-PATH/pr.tmpl YOUR-WORKFLOWS-PATH/pr.yml -e YOUR-TEMPLATES-PATH/.env.example
 
     3. Override values from envfile by the environment variable
 
-    $ WORKFLOW_PROJECT=test workflow_generator YOUR-TEMPLATES-PATH/pr.tmpl -e YOUR-TEMPLATES-PATH/.env.example
+      WORKFLOW_PROJECT=test workflow_generator YOUR-TEMPLATES-PATH/pr.tmpl -e YOUR-TEMPLATES-PATH/.env.example
     """
     stream_in = input or click.get_text_stream("stdin")
     stream_out = output or click.get_text_stream("stdout")
@@ -85,20 +86,20 @@ def secret(ctx, owner, repo, token, debug):
 
     1. Create a secret HELLO=WORLD
 
-    $ workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" \
-      --debug update --key=HELLO --value=WORLD
+      workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" \
+        --debug update --key=HELLO --value=WORLD
 
     2. Get a list of all secrets
 
-    $ workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" list
+      workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" list
 
     3. Get info about a secret
 
-    $ workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" get --key HELLO
+      workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" get --key HELLO
 
     4. Delete a secret HELLO
 
-    $ workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" delete --key HELLO
+      workflow_secret --owner=anna-money --repo=workflow-tools --token="account:token" delete --key HELLO
     """
     ctx.obj = Secret(owner, repo, token, debug)
 

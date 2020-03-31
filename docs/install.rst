@@ -4,7 +4,9 @@ Installation
 pip
 ---
 
-Just use::
+Just use:
+
+.. code-block:: bash
 
   pip install -U workflow-tools
 
@@ -12,11 +14,10 @@ Just use::
 GitHub
 ------
 
-You can also clone *workflow-tools* from `GitHub`_ and install it using ``make install``
-(see :ref:`contributing-docs`)::
+You can also install the package from the source code:
+
+.. code-block:: bash
 
   git clone https://github.com/anna-money/workflow-tools
   cd workflow-tools
   make install
-
-.. _GitHub: https://github.com/anna-money/workflow-tools
