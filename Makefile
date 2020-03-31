@@ -58,12 +58,18 @@ test:
 	@echo "Done"
 
 
+check-package:
+	@echo "Check package"
+	python setup.py check -ms
+	python setup.py sdist
+	twine check dist/*
+	@echo "Done"
+
 build:
-	@echo "Build Python package"
+	@echo "Build and push Python package"
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 	@echo "Done"
-
 
 docs:
 	@echo "Build documentation"
@@ -87,4 +93,4 @@ clean:
 	python setup.py clean
 	@echo "Done"
 
-.PHONY: install hooks uninstall lint test build docs clean
+.PHONY: install hooks uninstall lint test check-package build docs clean

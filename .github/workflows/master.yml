@@ -49,6 +49,8 @@ jobs:
       run: PYTHON_VERSION=${{ matrix.python }} make install
     - name: Run linters
       run: PYTHON_VERSION=${{ matrix.python }} make lint
+    - name: Check package
+      run: PYTHON_VERSION=${{ matrix.python }} make check-package
 
   build:
     runs-on: ubuntu-18.04
