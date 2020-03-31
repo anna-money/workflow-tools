@@ -1,9 +1,10 @@
 # docker-compose
 docker-compose.override.yml
 
-# PyCharm, emacs
+# PyCharm, emacs, OS
 .idea/
 *~
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

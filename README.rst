@@ -3,6 +3,10 @@ workflow-tools
 
 |Build|
 
+.. raw:: html
+
+   <img align="right" src="https://github.com/anna-money/workflow-tools/blob/master/docs/_static/workflow-tools-transparent-thumbnail.png">
+
 CLI tools for GitHub Actions.
 
 - Automate writing GitHub workflow configs with a generator tool
@@ -80,11 +84,6 @@ See `CONTRIBUTING.rst`_.
 
 .. |Build| image:: https://github.com/anna-money/workflow-tools/workflows/master/badge.svg
    :target: https://github.com/anna-money/workflow-tools/actions?query=workflow%3Amaster
-
-.. |Chart| image:: https://github.com/anna-money/workflow-tools/workflows/feature/docs/docs/_static/workflow-tools-transparent.png
-   :scale: 45 %
-   :alt: workflow-tools
-   :align: right
 
 .. _GitHub Actions: https://help.github.com/en/actions
 .. _GitHub Secrets: https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
