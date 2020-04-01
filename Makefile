@@ -14,6 +14,7 @@ endif
 
 REQUIREMENTS="requirements-dev.txt"
 REQUIREMENTS27="requirements-dev-py27.txt"
+REQUIREMENTS_DOCS="docs/requirements.txt"
 PROJECT="workflow_tools"
 
 isort = isort --recursive --check-only ${PROJECT}
@@ -73,6 +74,7 @@ build:
 
 build_docs:
 	@echo "Build documentation"
+	pip install -r ${REQUIREMENTS_DOCS}
 	make -C docs html
 	@echo "Done"
 
