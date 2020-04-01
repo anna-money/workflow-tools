@@ -87,7 +87,7 @@ See `CONTRIBUTING.rst`_.
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/python/black
    :alt: Black Formatter
-.. |License| image:: https://img.shields.io/github/license/anna-money/workflow-tools
+.. |License| image:: https://img.shields.io/github/license/anna-money/workflow-tools.svg
    :alt: GitHub License
 
 .. _GitHub Actions: https://help.github.com/en/actions
