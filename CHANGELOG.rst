@@ -1,6 +1,10 @@
 Changelog
 ---------
 
+0.6.0 (2020-04-01)
+..................
+* Update readthedocs config (#8) by @pilosus
+
 0.5.0 (2020-04-01)
 ..................
 * Fix autodocs (#7) by @pilosus
