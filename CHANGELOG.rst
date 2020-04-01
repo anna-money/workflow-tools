@@ -3,8 +3,8 @@ Changelog
 
 0.5.0 (2020-04-01)
 ..................
-* Fix autodocs (#6) by @pilosus
-* Add badges to README (#6) by @pilosus
+* Fix autodocs (#7) by @pilosus
+* Add badges to README (#7) by @pilosus
 
 0.4.0 (2020-04-01)
 ..................
