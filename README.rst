@@ -1,7 +1,7 @@
 workflow-tools
 ==============
 
-|Build|
+|Build| |Black| |License|
 
 .. raw:: html
 
@@ -84,6 +84,11 @@ See `CONTRIBUTING.rst`_.
 
 .. |Build| image:: https://github.com/anna-money/workflow-tools/workflows/master/badge.svg
    :target: https://github.com/anna-money/workflow-tools/actions?query=workflow%3Amaster
+.. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/python/black
+   :alt: Black Formatter
+.. |License| image:: https://img.shields.io/github/license/anna-money/workflow-tools.svg
+   :alt: GitHub License
 
 .. _GitHub Actions: https://help.github.com/en/actions
 .. _GitHub Secrets: https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets

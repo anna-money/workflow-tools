@@ -1,6 +1,12 @@
 Changelog
 ---------
 
+0.5.0 (2020-04-01)
+..................
+* Fix autodocs (#7) by @pilosus
+* Add check docs step in CI/CD (#7) by @pilosus
+* Add badges to README (#7) by @pilosus
+
 0.4.0 (2020-04-01)
 ..................
 * Extend CI/CD flow with package check (#5) by @pilosus

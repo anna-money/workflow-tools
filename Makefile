@@ -14,6 +14,7 @@ endif
 
 REQUIREMENTS="requirements-dev.txt"
 REQUIREMENTS27="requirements-dev-py27.txt"
+REQUIREMENTS_DOCS="docs/requirements.txt"
 PROJECT="workflow_tools"
 
 isort = isort --recursive --check-only ${PROJECT}
@@ -41,7 +42,7 @@ hooks:
 	@echo "Done"
 
 uninstall:
-	@echo "Unintsll package"
+	@echo "Uninstall package"
 	@pip uninstall ${PROJECT} -y
 	@echo "Done"
 
@@ -71,9 +72,13 @@ build:
 	twine upload dist/*
 	@echo "Done"
 
-docs:
+build_docs:
 	@echo "Build documentation"
+	pip install -r ${REQUIREMENTS_DOCS}
 	make -C docs html
+	@echo "Done"
+
+docs: install build_docs
 
 clean:
 	@echo "Clean up files"
@@ -93,4 +98,4 @@ clean:
 	python setup.py clean
 	@echo "Done"
 
-.PHONY: install hooks uninstall lint test check-package build docs clean
+.PHONY: install hooks uninstall lint test check-package build build_docs docs clean

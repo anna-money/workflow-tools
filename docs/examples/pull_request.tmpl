@@ -59,3 +59,15 @@ jobs:
       run: PYTHON_VERSION=[[ workflow.python37 ]] make install
     - name: Check package
       run: PYTHON_VERSION=[[ workflow.python37 ]] make check-package
+
+  check_docs:
+    runs-on: [[ workflow.runner_version ]]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: [[ workflow.python37 ]]
+    - name: Check documentation
+      run: PYTHON_VERSION=[[ workflow.python37 ]] make docs
