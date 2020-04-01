@@ -64,9 +64,21 @@ jobs:
     - name: Check package
       run: PYTHON_VERSION=3.7 make check-package
 
+  check_docs:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Check documentation
+      run: PYTHON_VERSION=3.7 make docs
+
   build:
     runs-on: ubuntu-18.04
-    needs: [test, lint, check_package]
+    needs: [test, lint, check_package, check_docs]
 
     steps:
     - uses: actions/checkout@v1
