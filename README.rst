@@ -38,7 +38,7 @@ Now let's use a fragment of `Jinja2`_ template for a GitHub Actions workflow to 
 
 .. code-block:: bash
 
-  WORKFLOW_RUNNER_VERSION=ubuntu-18.04 WORKFLOW_PYTHON27=2.7 WORKFLOW_PYTHON37=3.7 \
+  WORKFLOW_RUNNER_VERSION=ubuntu-latest WORKFLOW_PYTHON27=2.7 WORKFLOW_PYTHON37=3.7 \
   workflow_generator
   # Press Enter to start pasting Jinja2 workflow template into stdin
   jobs:
@@ -53,7 +53,7 @@ Now let's use a fragment of `Jinja2`_ template for a GitHub Actions workflow to 
   # For real workflow templates use reading/writing from/to a file, load variables from envfile
   jobs:
     test:
-      runs-on: ubuntu-18.04
+      runs-on: ubuntu-latest
       strategy:
         matrix:
           python:

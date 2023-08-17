@@ -3,11 +3,11 @@ name: pull_request
 on:
   pull_request:
     branches:
-    - "*"
+      - "*"
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -16,18 +16,18 @@ jobs:
           - 3.7
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup python
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python }}
-    - name: Install deps
-      run: PYTHON_VERSION=${{ matrix.python }} make install
-    - name: Run tests
-      run: PYTHON_VERSION=${{ matrix.python }} make test
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install deps
+        run: PYTHON_VERSION=${{ matrix.python }} make install
+      - name: Run tests
+        run: PYTHON_VERSION=${{ matrix.python }} make test
 
   lint:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -36,38 +36,38 @@ jobs:
           - 3.7
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup python
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python }}
-    - name: Install deps
-      run: PYTHON_VERSION=${{ matrix.python }} make install
-    - name: Run linters
-      run: PYTHON_VERSION=${{ matrix.python }} make lint
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install deps
+        run: PYTHON_VERSION=${{ matrix.python }} make install
+      - name: Run linters
+        run: PYTHON_VERSION=${{ matrix.python }} make lint
 
   check_package:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7
-    - name: Install deps
-      run: PYTHON_VERSION=3.7 make install
-    - name: Check package
-      run: PYTHON_VERSION=3.7 make check-package
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install deps
+        run: PYTHON_VERSION=3.7 make install
+      - name: Check package
+        run: PYTHON_VERSION=3.7 make check-package
 
   check_docs:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7
-    - name: Check documentation
-      run: PYTHON_VERSION=3.7 make docs
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Check documentation
+        run: PYTHON_VERSION=3.7 make docs
